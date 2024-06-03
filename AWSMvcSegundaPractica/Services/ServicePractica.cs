@@ -8,9 +8,9 @@ namespace AWSMvcSegundaPractica.Services
         private string UrlApi;
         private MediaTypeWithQualityHeaderValue header;
 
-        public ServicePractica(IConfiguration configuration)
+        public ServicePractica(KeysModel keys)
         {
-            this.UrlApi = configuration.GetValue<string>("ApiUrls:ApiPracticaAWS");
+            this.UrlApi = keys.ApiEventoCategoria;
             this.header = new MediaTypeWithQualityHeaderValue("application/json");
         }
 

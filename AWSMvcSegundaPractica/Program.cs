@@ -1,7 +1,15 @@
 using Amazon.S3;
+using AWSMvcSegundaPractica.Helpers;
+using AWSMvcSegundaPractica.Models;
 using AWSMvcSegundaPractica.Services;
+using Newtonsoft.Json;
 
 var builder = WebApplication.CreateBuilder(args);
+
+string jsonSecrets = await HelperSecretManager.GetSecretsAsync();
+KeysModel keysModel = JsonConvert.DeserializeObject<KeysModel>(jsonSecrets);
+
+builder.Services.AddSingleton<KeysModel>(x => keysModel);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

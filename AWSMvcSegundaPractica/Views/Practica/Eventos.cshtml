@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<AWSMvcSegundaPractica.Models.Evento>
 
 @* Ten en cuenta que todo esto deberia ir en el viewimports , sin tener que repetirlo en cada vista *@
-@inject IConfiguration configuration
+
 @{
     ViewData["Title"] = "Index";
-    string UrlBucket = configuration.GetValue<string>("AWS:S3BucketUrl");
+    string UrlBucket = KeysModel.S3BucketUrl;
 }
 
 <h1>Eventos</h1>
